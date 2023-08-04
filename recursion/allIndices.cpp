@@ -8,7 +8,6 @@ vector<int> allIndices(int *arr, int size, int target, int currentIndex = 0)
     {
         return indices;
     }
-
     if (arr[currentIndex] == target)
     {
         indices.push_back(currentIndex);
@@ -23,24 +22,14 @@ vector<int> allIndices(int *arr, int size, int target, int currentIndex = 0)
 
 int main()
 {
-    int array[] = {1, 2, 4, 3, 4, 6, 7, 8, 9, 7};
+    int array[] = {1, 2, 3, 1, 2, 3, 1, 2, 3};
     int size = sizeof(array) / sizeof array[0];
-    int target;
-    cin >> target;
+    int target = 2;
     vector<int> indices = allIndices(array, size, target);
+    for (int i = 0; i < indices.size(); i++)
+    {
+        cout << indices[i] << " ";
+    }
 
-    if (indices.empty())
-    {
-        std::cout << "Target not found in the array." << std::endl;
-    }
-    else
-    {
-        std::cout << "Target found at indices: ";
-        for (int index : indices)
-        {
-            std::cout << index << " ";
-        }
-        std::cout << std::endl;
-    }
     return 0;
 }
