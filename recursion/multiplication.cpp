@@ -7,7 +7,6 @@ int multiplication(int num1, int num2)
     {
         return 0;
     }
-    cout << "hi" << endl;
     return num1 + multiplication(num1, num2 - 1);
 }
 

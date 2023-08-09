@@ -6,7 +6,7 @@ string replacePI(string s)
     if (s.length() <= 1)
     {
         return s;
-    };  
+    };
     if (s.substr(0, 2) == "PI")
     {
         return "3.14" + replacePI(s.substr(2));
