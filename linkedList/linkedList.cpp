@@ -204,18 +204,95 @@ Node *mergeSorted(Node *LL1, Node *LL2)
     return head;
 }
 
+Node *reverseLL(Node *linkedList)
+{
+    if (linkedList == NULL || linkedList->next == NULL)
+    {
+        return linkedList;
+    }
+
+    Node *reversedWithoutHead = reverseLL(linkedList->next);
+
+    Node *temp = reversedWithoutHead;
+
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+
+    temp->next = linkedList;
+    linkedList->next = NULL;
+    return reversedWithoutHead;
+}
+
+Node *Add(Node *head1, Node *head2)
+{
+    int carry = 0;
+    Node *head = NULL;
+    Node *ans = NULL;
+
+    while (head1 != NULL || head2 != NULL)
+    {
+        int sum = carry + head1->data + head2->data;
+        int lastDigit = sum % 10;
+        carry = sum / 10;
+        Node *newNode = new Node(lastDigit);
+        cout << "Iteration Value: " << newNode->data << endl;
+        if (ans == NULL)
+        {
+            ans = newNode;
+            head = newNode;
+        }
+        else
+        {
+            ans->next = newNode;
+            ans = ans->next;
+        }
+        head1 = head1->next;
+        head2 = head2->next;
+    }
+
+    if (carry != 0)
+    {
+        Node *newNode = new Node(carry);
+        ans->next = newNode;
+    }
+    cout << "In the add : ";
+    print(head);
+    return head;
+}
+Node *addTwoNumbers(Node *head1, Node *head2)
+{
+    // Step 1 reverse LL
+    Node *reversed1 = reverseLL(head1);
+    Node *reversed2 = reverseLL(head2);
+
+    // Step to get the answer
+    Node *ans = Add(reversed1, reversed2);
+
+    // reverse the answer
+
+    return reverseLL(ans);
+}
+
 int main()
 {
     Node *head1 = Input();
     print(head1);
-
     Node *head2 = Input();
     print(head2);
+    Node *ans = addTwoNumbers(head1, head2);
+    print(ans);
+    // Node *reversed = reverseLL(head1);
+    // print(reversed);
 
-    Node *emptyptr;
+    // Node *head2 = Input();
+    // print(head2);
 
-    Node *head3 = mergeSorted(head1, head2);
-    print(head3);
+    // Node *emptyptr;
+
+    // Node *head3 = mergeSorted(head1, head2);
+    // print(head3);
 
     return 0;
 }
