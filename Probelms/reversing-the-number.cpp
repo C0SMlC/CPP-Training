@@ -1,22 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int reverseNum(int num)
+int reverse(int n)
 {
-    // 96
-    int reversed = 0;
-    while (num > 0)
+    if (n < 10 && n >= 0)
     {
-        int lastDigit = num % 10; // 6
-        reversed = reversed * 10 + lastDigit;
-        num = num / 10; // 9
+        return n;
     }
-    return reversed;
+
+    int sign = 1;
+    if (n < 0)
+    {
+        sign = -1;
+        n = -n;
+    }
+
+    int reversed = 0;
+    while (n > 0)
+    {
+        int digit = n % 10;
+        reversed = reversed * 10 + digit;
+        n /= 10;
+    }
+
+    return reversed * sign;
 }
+
 int main()
 {
-    int num;
-    cin >> num;
-    cout << reverseNum(num) << endl;
+    int n;
+    cin >> n;
+    cout << n << endl;
+    cout << reverse(n);
     return 0;
 }
