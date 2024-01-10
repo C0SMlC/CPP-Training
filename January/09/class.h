@@ -5,7 +5,7 @@ class Student
 {
 private:
     int age;
-    const int birthYear;
+    int const birthYear;
     char *name;
 
 public:
@@ -29,11 +29,13 @@ public:
 
     // Assignment operator
     Student &operator=(const Student &obj)
+        : birthYear(obj.birthYear)
     {
         cout << "Assignment operator called" << endl;
         if (this != &obj)
         {
             age = obj.age;
+            birthYear = obj.birthYear;
             delete[] name;
             name = new char[strlen(obj.name) + 1];
             strcpy(name, obj.name);
