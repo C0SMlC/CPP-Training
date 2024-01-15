@@ -11,6 +11,9 @@ int main()
     Animal *b = new Cat(species, 3);
     b->print();
 
+    // cannot intialise animal like this
+    // Animal *c = new Animal("Cat", 5);
+
     a->sound();
     b->sound();
 
