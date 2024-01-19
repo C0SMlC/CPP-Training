@@ -47,7 +47,7 @@ public:
     bool isEmpty()
     {
         return (top == -1);
-    } 
+    }
 
     ~Stack()
     {
