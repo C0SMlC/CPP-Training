@@ -8,7 +8,6 @@ T Sum(T x, T y)
     if (std::is_same<T, int>::value)
     {
         std::cout << "Type is int" << std::endl;
-        return static_cast<T>(x * y);
     }
     else if (std::is_same<T, std::string>::value)
     {
