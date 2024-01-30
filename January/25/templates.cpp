@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 template <typename T, typename M, typename N>
@@ -47,16 +47,22 @@ private:
 
 int main()
 {
-    cout << sum<int, double, int>(10, 10.25) << endl;
-    cout << sum<string, string, string>("jkn", "hj") << endl;
+    // cout << sum<int, double, int>(10, 10.25) << endl;
+    // cout << sum<string, string, string>("jkn", "hj") << endl;
 
-    // Generic container
-    MyContainer<int> intContainer(42);
-    intContainer.display();
+    // // Generic container
+    // MyContainer<int> intContainer(42);
+    // intContainer.display();
 
-    // Specialized container for char*
-    MyContainer<float> strContainer(545.31);
-    strContainer.display();
+    // // Specialized container for char*
+    // MyContainer<float> strContainer(545.31);
+    // strContainer.display();
+    multimap<int, int> myMap;
+    myMap.insert({0, 1});
+    myMap.insert({0, 2});
+    myMap.insert({0, 3});
 
+    // getting the  value of the key
+    cout << myMap.count(0) << endl;
     return 0;
 }
