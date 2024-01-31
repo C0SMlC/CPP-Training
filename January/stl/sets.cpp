@@ -15,7 +15,7 @@ public:
 
     bool operator<(const myClass &other) const
     {
-        return identifier < other.identifier && name < other.name;
+        return (identifier < other.identifier) && (name < other.name);
     }
 };
 
