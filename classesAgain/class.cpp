@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 class Fraction
 {
     int num;
@@ -11,19 +14,32 @@ public:
         this->deno = deno;
     }
 
-    Fraction &operator=(const Fraction &f)
+    Fraction &operator++()
     {
-        if (this != &f)
-        {
-            this->num = f.num;
-            this->deno = f.deno;
-        }
+        this->num = this->num + 1;
+        this->deno = this->deno + 1;
+
         return *this;
     }
 
-    void
-    print()
+    Fraction &operator++(int)
+    {
+        Fraction *a = new Fraction(this->num, this->deno);
+        ++(*this);
+        return *a;
+    }
+
+    void print()
     {
         cout << this->num << "/" << this->deno << endl;
     }
 };
+
+int main()
+{
+    Fraction f1(10, 20);
+    f1.print();
+    Fraction f2 = f1++;
+    f2.print();
+    f1.print();
+}

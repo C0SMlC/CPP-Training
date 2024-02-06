@@ -14,14 +14,17 @@ int main()
     studentDetailsStatic.push_back(student4);
     studentDetailsStatic.push_back(student5);
 
+    cout << "-------------------------------------------------------" << endl;
+    cout << student1.getName() << endl;
     cout << GetClass(3) << endl;
-    cout << SearchStudent("Manoj") << endl;
+    cout << SearchStudent("Sunil") << endl;
 
     printList(GetContacts(3));
     printList(GetSubjects(3));
     printList(GetSubjectsWiseStudentNames("Maths"));
     printList(GetGradeWiseStudentNames("C"));
-    printList(GetSportName("Manoj"));
+    printList(GetSportName("Sunil"));
+    cout << "-------------------------------------------------------" << endl;
 
     list<Student> list = ConvertToList(studentDetailsStatic);
 }

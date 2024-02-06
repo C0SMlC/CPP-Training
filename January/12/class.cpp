@@ -23,13 +23,15 @@ public:
         cout << "Total animals: " << totalAnimals << endl;
     }
 
-    virtual~Animal()
+    virtual ~Animal()
     {
         cout << "Animal destroyed" << endl;
         delete[] this->species;
         totalAnimals--;
     }
 };
+
+Animal ::~Animal();
 
 // intialise totalAnimals
 int Animal::totalAnimals = 0;

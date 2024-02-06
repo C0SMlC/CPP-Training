@@ -29,12 +29,15 @@ int main()
     Derived derivedObj;
     Base &baseRef = derivedObj;
 
-    // Object slicing since the object is of type base and is initialised with derved class the dervied class methods are sliced up
+    Derived *derviedobj = dynamic_cast<Derived *>(&baseRef);
+    derviedobj->fuuu();
+
+    // Object slicing since the object is of type base and is initialised with derived class, the dervied class methods are sliced up
     // to the base class
     // Derived derivedObj;
     // Base baseRef = derivedObj;
 
-    baseRef.print();
+    // baseRef.print();
 
     // Attempting dynamic_cast with references
     try
